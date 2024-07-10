@@ -1,0 +1,456 @@
+@charset "utf-8";
+/*--------------------------------------------------------*/
+/* General */
+
+body {
+    font-family: 'Roboto', sans-serif; 
+    background-image: url("../imagenes/fondo.sitioweb.jpg");
+    background-size: cover; /* Para que la imagen cubra todo el cuerpo */
+    background-repeat: no-repeat;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.body{
+    display: grid;
+    grid-template-areas: 
+    "titulo"
+    "menu"
+    "principal"
+    "accesoria"
+    "pie de pagina";
+    grid-template-rows: auto auto 1fr;
+}
+
+main {
+    flex: 1;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: 0;
+}
+
+img{
+    max-width: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Coloca el logo a la izquierda y el icono de hamburguesa a la derecha */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+.hamburguesa {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.search-container {
+    position: relative;
+    bottom: 30px;
+    text-align: center;
+}
+
+#menu {
+    font-family: 'Bebas Neue', sans-serif; 
+    display: none;
+    position: absolute;
+    top: 5%;
+    left: 0;
+    padding: 1em;
+    backdrop-filter: blur(10px); /* Agrega el efecto de desenfoque */
+    background-color: rgba(255, 255, 255, 0.5); /* Ajusta la opacidad del fondo */
+    z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+}
+
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+#menu li {
+    margin-bottom: 1em;
+}
+
+/* Ajustes de posición y estilo cuando se abre el menú */
+#menu.open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.scroll-up-button {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.scroll-up-button:hover {
+    background-color: #555;
+}
+
+.linea-footer {
+    width: 100%; /* Ajusta el ancho de la línea */
+    border-top: 2px solid #000000; /* Define el color y el estilo de la línea */
+    margin-top: 20px; /* Ajusta el margen superior para separarla del contenido superior */
+    margin-bottom: 20px; /* Ajusta el margen inferior para separarla del contenido inferior */
+}    
+
+footer {
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+.p{
+    margin: 0 auto;
+}
+
+/* Estilos para las estrellas */
+
+li::before {
+    content: "\f005"; /* Código Unicode del icono de estrella en Font Awesome */
+    font-family: "Font Awesome 5 Free"; /* Familia de fuente de Font Awesome */
+    margin-right: 5px; /* Espacio entre el ícono de estrella y el texto */
+}
+
+/*--------------------------------------------------------*/
+/* Index */
+
+#logo {
+    width: 60%; /* Definimos un ancho para el logo */
+    position: relative;
+    margin: 0 auto; /* Centramos horizontalmente el logo */
+    margin-top: -50px; /* Centramos horizontalmente el logo */
+}
+
+.prev,
+.next {
+    position: absolute;
+    /* Ajusta la posición vertical al 50% del contenedor padre */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(236, 14, 14, 0.458);
+    color: rgb(44, 4, 4);
+    border-color: #555;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+#videoIndex {
+    width: 50%;
+    display: block;
+    margin: 20px auto; /* Ajusta el margen superior del video */
+    position: relative;
+    bottom: 50px;
+    height: auto;
+}
+
+.contenedor-video {
+    margin-top: 20px; /* Agrega espacio encima del contenedor del video */
+    margin-bottom: 20px; /* Agrega espacio debajo del contenedor del video */
+}
+
+
+
+.carousel {
+    position: relative;
+    max-width: 80%;
+    margin: 50px auto 3em; /* Ajusta el margen superior e inferior del carrusel */
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    align-items: center; /* Centra las imágenes verticalmente */
+}
+
+.carousel-images img {
+    max-width: 100%; /* Asegura que las imágenes no se desborden del carrusel */
+    height: auto;
+}
+
+
+
+
+#imgFrase img {
+    display: block; /* Asegura que la imagen se comporte como un bloque */
+    margin: 20px auto; /* Establece un margen superior e inferior de 50px y un margen izquierdo y derecho automáticos */
+    width: 50%; 
+    height: auto; 
+    position: relative; /* Opcional, dependiendo del contexto */
+}
+/*--------------------------------------------------------*/
+/* Productos */
+
+#logo-productos {
+    width: 40%; /* Definimos un ancho para el logo */
+    position: relative;
+    margin: 0 auto; /* Centramos horizontalmente el logo */
+    margin-top: -50px; /* Centramos horizontalmente el logo */
+}
+
+.contenedor-productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.producto {
+    width: calc(60.33% - 20px); /* Ancho del producto, considerando el margen entre productos */
+    margin: 0 auto; /* Centramos horizontalmente el logo */
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.producto img {
+    max-width: 90%;
+    height: auto;
+    margin-bottom: 5px;
+    border: 2px solid #ddd; /* Agrega un borde de 2px sólido y gris alrededor de la imagen */
+    border-radius: 8px; /* Añade esquinas redondeadas al borde */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave */
+}
+
+/* Cambia el color del borde cuando el usuario pase el ratón sobre la imagen */
+.producto img:hover {
+    border-color: #aaa;
+}
+
+/*--------------------------------------------------------*/
+/* Cuidados */
+#logo-cuidados {
+    width: 40%; /* Definimos un ancho para el logo */
+    position: relative;
+    margin: 0 auto; /* Centramos horizontalmente el logo */
+    margin-top: -50px; /* Centramos horizontalmente el logo */
+}
+
+.contenedor-cuidados {
+    display: flex;
+    flex-direction: column; /* Alinear elementos en una fila */
+    align-items: center; /* Centrar verticalmente los elementos */
+    max-width: 100%; /* Ancho máximo del contenedor */
+    padding: 20px; /* Espacio alrededor del contenido */
+}
+.texto-cuidados {
+    max-width: 100%; /* Ancho máximo del texto */
+    padding-bottom: 20px; /* Espacio entre el texto y la imagen */
+    text-align: justify; /* Alinear el texto justificado */
+     font-family: 'Inconsolata', monospace;
+}
+
+.imagen-cuidados {
+    max-width: 100%; /* Imagen se adapta al ancho del contenedor */
+    height: auto; /* Altura ajustada automáticamente */
+    display: block;
+        
+    }
+
+    .contenedor-cuidados{
+        ul{
+            list-style: none; /* Elimina los puntos de la lista */
+        }
+    }
+/*--------------------------------------------------------*/
+/* Contacto */
+#logo-contacto{
+    width: 40%; /* Definimos un ancho para el logo */
+    position: relative;
+    margin: 0 auto; /* Centramos horizontalmente el logo */
+    margin-top: -50px; /* Centramos horizontalmente el logo */
+}
+
+.texto-contacto {
+    max-width: 100%; /* Ancho máximo del texto */
+    padding-bottom: 20px; /* Espacio entre el texto y la imagen */
+    text-align: justify; /* Alinear el texto justificado */
+     font-family: 'Inconsolata', monospace;
+     position: relative;
+    left: 7%
+}
+
+/*--------------------------------------------------------*/
+/* Nosotros */
+
+#logo-nosotros {
+    width: 40%; /* Definimos un ancho para el logo */
+    position: relative;
+    margin: 0 auto; /* Centramos horizontalmente el logo */
+    margin-top: -50px; /* Centramos horizontalmente el logo */
+}
+
+.contenedor-nosotros {
+    display: flex;
+    flex-direction: column; /* Alinear elementos en una fila */
+    align-items: center; /* Centrar verticalmente los elementos */
+    max-width: 100%; /* Ancho máximo del contenedor */
+    padding: 20px; /* Espacio alrededor del contenido */
+}
+
+.texto-nosotros {
+    max-width: 100%; /* Ancho máximo del texto */
+    padding-bottom: 20px; /* Espacio entre el texto y la imagen */
+    text-align: justify; /* Alinear el texto justificado */
+     font-family: 'Inconsolata', monospace;
+}
+
+/*--------------------------------------------------------*/
+/*GiftCard */
+
+
+#logo-giftcard{
+    width: 40%; /* Definimos un ancho para el logo */
+    position: relative;
+    margin: 0 auto; /* Centramos horizontalmente el logo */
+    margin-top: -50px; /* Centramos horizontalmente el logo */
+}
+
+.giftcard {
+    width: calc(33.33% - 20px); /* Ancho del producto, considerando el margen entre productos */
+    margin: 0 auto; /* Centramos horizontalmente las tarjetas de regalo */
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+.giftcard img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+    border: 2px solid #ddd; /* Agrega un borde de 2px sólido y gris alrededor de la imagen */
+    border-radius: 8px; /* Añade esquinas redondeadas al borde */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave */
+}
+
+/* Cambia el color del borde cuando el usuario pase el ratón sobre la imagen */
+.giftcard img:hover {
+    border-color: #aaa;
+}
+
+.contenedor-giftcard {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px; /* Espacio entre las imágenes */
+    padding: 20px;  /* Espacio alrededor del contenedor */
+}
+
+.contenedor-giftcard .giftcard {
+    width: 50%; /* Una imagen por fila en dispositivos móviles */
+}
+
+.contenedor-giftcard .giftcard img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Media queries para tabletas */
+@media screen and (min-width: 768px) {
+    .contenedor-giftcard .giftcard {
+        width: calc(70% - 20px); /* Dos productos por fila en tablet */
+    }
+    .contenedor-productos .producto {
+        width: calc(40% - 20px); /* Dos productos por fila en tablet */
+    }
+    .carousel-images img {
+        width: 50%;        
+}
+}
+
+/* Media queries para computadoras */
+@media screen and (min-width: 1024px) {
+    .contenedor-giftcard .giftcard {
+        width: 250px; /* Establece un ancho fijo para las tarjetas de regalo */
+        margin: 20px; /* Ajusta el margen entre las tarjetas */
+    }
+    .contenedor-productos .producto {
+        width: 250px; /* Establece un ancho fijo para las tarjetas de regalo */
+        margin: 20px; /* Ajusta el margen entre las tarjetas */
+    }
+    .carousel-images img {
+        width: 80%;
+    }
+    nav#menu ul {
+        display: flex;
+        justify-content: space-around;
+    }
+    nav#menu ul li {
+        display: inline-block;
+    }
+    #logo {
+        flex: 1;
+        text-align: center;
+    }
+    
+    #logo img {
+        max-width: 187px; /* Ajusta el tamaño del logo según tu preferencia */
+        height: auto;
+    }
+    .contenedor-video { 
+        width: 30%;}
+       
+        main {
+            display: flex;
+            justify-content: space-between; /* Distribuye los elementos horizontalmente */
+            align-items: center; /* Centra verticalmente los elementos */
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan si no caben en una sola línea */
+          }
+        
+          .contenedor-video,
+          .contenedor-imagen,
+          .carousel {
+            width: calc(33.33% - 20px); /* Calcula el ancho del elemento, restando el espacio entre ellos */
+            margin-bottom: 20px; /* Espacio entre elementos */
+          }
+        
+          .contenedor-video video,
+          .contenedor-imagen img {
+            width: 100%; /* Ajusta el ancho del contenido al 100% del contenedor */
+            height: auto; /* Mantiene la proporción del contenido */
+          }
+        }
+
+    
+
+
+
+
+
+
+
+
+
+
